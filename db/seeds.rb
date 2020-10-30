@@ -7,5 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 10.times do
-  User.create(name: Faker::Name.name, email: Faker::Internet.email)
+  user = User.create(name: Faker::Name.name, email: Faker::Internet.email)
+  5.times do
+    user.posts.create!(title:Faker::FunnyName.name, content:Faker::Lorem.paragraph)
+  end
 end
